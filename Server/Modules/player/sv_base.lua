@@ -1,8 +1,8 @@
 -- Internal function called when player dies
 local function OnPlayerDeath(cChar, iLastDamage, sLastBoneDamage, iDamageReason, vHitDirection, pInstigator)
-	local controller = cChar:GetPlayer()
+	local pCharController = cChar:GetPlayer()
 
-	if not controller then return end
+	if not pCharController then return end
 
     -- Todo: Implement death logic
 
@@ -13,14 +13,14 @@ end
 ---@param vLocation Vector
 ---@param rRotation Rotator
 function Player:Spawn(vLocation, rRotation)
-	local new_char = SpawnCharacterRandomized(vLocation, rRotation)
-	new_char:SetTeam(1)
-    self:Possess(new_char)
+	local cNewChar = SpawnCharacterRandomized(vLocation, rRotation)
+	cNewChar:SetTeam(1)
+    self:Possess(cNewChar)
 
-    new_char:Subscribe("Death", OnPlayerCharacterDeath)
+    cNewChar:Subscribe("Death", OnPlayerDeath)
 
-    new_char:Subscribe("UnPossess", function(self)
-		self:Unsubscribe("Death", OnPlayerCharacterDeath)
+    cNewChar:Subscribe("UnPossess", function(self)
+		self:Unsubscribe("Death", OnPlayerDeath)
 	end)
 end
 
