@@ -1,3 +1,5 @@
+local tConfig = Package.Require("Config/config.lua")
+
 -- Internal function called when player dies
 local function OnPlayerDeath(cChar, iLastDamage, sLastBoneDamage, iDamageReason, vHitDirection, pInstigator)
 	local pCharController = cChar:GetPlayer()
@@ -32,8 +34,10 @@ Player.Subscribe("Spawn", function(pPly)
 end)
 
 
-Character.Subscribe("Respawn", function(character)
-    -- Todo: Implement respawn logic
+Character.Subscribe("Respawn", function(cChar)
+    if not tConfig.bRespawnSameTeam then
+		cChar:SetJob(1)
+	end
 end)
 
 -- Event called when a player leaves the server
