@@ -15,7 +15,7 @@ end
 ---@param vLocation Vector
 ---@param rRotation Rotator
 function Player:Spawn(vLocation, rRotation)
-	local cNewChar = SpawnCharacterRandomized(vLocation, rRotation)
+	local cNewChar = Character(vLocation or Vector(0, 0, 0), rRotation or Rotator(0, 0, 0), "nanos-world::SK_Male")
 	cNewChar:SetTeam(1)
     self:Possess(cNewChar)
 
@@ -28,7 +28,7 @@ end
 
 -- Event called when a player spawn for the first time on the server
 Player.Subscribe("Spawn", function(pPly)
-	pPly:Spawn(pPly)
+	pPly:Spawn()
 
     Chat.BroadcastMessage(pPly:GetName().." has joined the server")
 end)
