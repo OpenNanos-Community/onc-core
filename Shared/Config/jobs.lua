@@ -32,7 +32,7 @@ tConfig.iBaseJob = 1
 
 -- Set Base Job Weapon
 tConfig.tBaseJobWeapon = {
-    ""
+    "Crowbar"
 }
 
 return tConfig
