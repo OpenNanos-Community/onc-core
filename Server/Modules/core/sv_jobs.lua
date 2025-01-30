@@ -39,5 +39,5 @@ function CreateJob(sName, sJobIdentifier, cColor, tModels, tWeapons, tAmmo, iSal
         ["iArmor"] = iArmor or 0,
         ["sCategory"] = sCategory or "Citizen"
     }
-    return Jobs[iJob]
+    return tJobs[iJob]
 end
