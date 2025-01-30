@@ -1,9 +1,12 @@
 local shouldStop = false
 
-local function checkStopCode(returnedCode)
-   if (returnedCode == -1) then
-    shouldStop = true
-    Server.UnloadPackage(Package.GetName())
+local function checkStopCode(returned_code, filename)
+   if (returned_code == -1) then
+        Console.Log("stop called")
+        shouldStop = true
+        Console.Warn("test")
+        -- Console.Warn("[Loader] Received stop code from: " ..filename)
+        Server.UnloadPackage(Package.GetName())
    end
 end
 
@@ -21,10 +24,10 @@ local function loadModules()
             if (shouldStop) then return end
 
             Console.Log("\tLoading SH file: " ..sharedFile)
-            returnCode = Package.Require(packageName.. "/Shared/modules/" ..mConfig.pathName.. "/" ..sharedFile)
-
-            checkStopCode(returnCode)
-
+            local path = packageName.. "/Shared/modules/" ..mConfig.pathName.. "/" ..sharedFile
+            
+            return_code = Package.Require(path)
+            checkStopCode(return_code, path)
         end
 
         -- Server include
@@ -33,9 +36,10 @@ local function loadModules()
                 if (shouldStop) then return end
 
                 Console.Log("\tLoading SV file: " ..serverFile)
-                returnCode = Package.Require(packageName.. "/Server/modules/" ..mConfig.pathName.. "/" ..serverFile)
+                local path = packageName.. "/Server/modules/" ..mConfig.pathName.. "/" ..serverFile
 
-                checkStopCode(returnCode)
+                return_code = Package.Require(path)
+                checkStopCode(return_code, path)
             end
         end
 
@@ -45,9 +49,10 @@ local function loadModules()
                 if (shouldStop) then return end
 
                 Console.Log("\tLoading CL file: " ..clientFile)
-                returnCode = Package.Require(packageName.. "/Client/modules/" ..mConfig.pathName.. "/" ..clientFile)
+                local path = packageName.. "/Client/modules/" ..mConfig.pathName.. "/" ..clientFile
+                return_code = Package.Require(path)
 
-                checkStopCode(returnCode)
+                checkStopCode(return_code, path)
             end
         end
     end
