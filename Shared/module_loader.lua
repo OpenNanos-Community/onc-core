@@ -12,14 +12,16 @@ end
 -- Function used internally
 -- Load all modules
 local function LoadModules()
+    -- Local variables cache
     local iReturnCode = 0
+    local bIsServer = _ENV["Server"] ~= nil and true or false
+    local tModuleFiles = {}
+
     -- mName : module name && tConfig : module configuration(ex: files, displayName)
     for k, tConfig in ipairs(ONC.Modules) do
         Console.Log("[Loader] Loading module: " .. tConfig.pathName)
 
-        local bIsServer = _ENV["Server"] ~= nil and true or false
-        local tModuleFiles = tConfig.files
-        local sPackageName = Package.GetName()
+        tModuleFiles = tConfig.files
 
         -- Shared include
         for _, sSharedFile in ipairs(tModuleFiles.shared) do
