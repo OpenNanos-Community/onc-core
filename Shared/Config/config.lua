@@ -19,10 +19,23 @@ tConfig.bUseONCScoreboard = true
 -- Enable or disable ONC HUD
 tConfig.bUseONCHud = true
 
+-- Save player's data on disconnect (health, armor, weapons, ammo, position, team, etc)
+tConfig.bDisconnectSaveData = true
+
 
 --[[
 Value settings
 ]]
+-- Time in seconds to respawn after death
+tConfig.iRespawnTime = 5
 
+-- Walk speed
+tConfig.iWalkSpeed = 200
+
+-- Run speed
+tConfig.iRunSpeed = 400
+
+-- Jump power
+tConfig.iJumpPower = 200
 
 return tConfig

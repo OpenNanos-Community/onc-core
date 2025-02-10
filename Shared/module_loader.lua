@@ -1,4 +1,5 @@
 local bShouldStop = false
+local tModules = Package.Require("/Config/modules.lua")
 
 -- Function used internally
 -- Check if the return code is -1, if so, stop the package
@@ -18,7 +19,7 @@ local function LoadModules()
     local tModuleFiles = {}
 
     -- mName : module name && tConfig : module configuration(ex: files, displayName)
-    for k, tConfig in ipairs(ONC.Modules) do
+    for k, tConfig in ipairs(tModules.Modules) do
         Console.Log("[Loader] Loading module: " .. tConfig.pathName)
 
         tModuleFiles = tConfig.files

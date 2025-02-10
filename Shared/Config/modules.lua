@@ -1,4 +1,4 @@
-ONC.Modules = {
+local tModules = {
     [1] = {
         displayName = "Core";
         pathName = "core";
@@ -14,4 +14,20 @@ ONC.Modules = {
             },
         }
     },
+    [2] = {
+        displayName = "Storage";
+        pathName = "storage";
+        files = {
+            shared = {
+            },
+            server = {
+                "sv_utils.lua"
+            },
+            client = {
+                
+            },
+        }
+    }
 }
+
+return tModules
