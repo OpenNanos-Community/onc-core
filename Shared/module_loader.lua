@@ -12,6 +12,7 @@ end
 -- Function used internally
 -- Load all modules
 local function LoadModules()
+    local iReturnCode = 0
     -- mName : module name && tConfig : module configuration(ex: files, displayName)
     for k, tConfig in ipairs(ONC.Modules) do
         Console.Log("[Loader] Loading module: " .. tConfig.pathName)
@@ -25,9 +26,9 @@ local function LoadModules()
             if bShouldStop then return end
 
             Console.Log("\tLoading SH file: " .. sSharedFile)
-            returnCode = Package.Require(sPackageName .. "/Shared/modules/" .. tConfig.pathName .. "/" .. sSharedFile)
+            iReturnCode = Package.Require("/modules/" .. tConfig.pathName .. "/" .. sSharedFile)
 
-            CheckStopCode(returnCode)
+            CheckStopCode(iReturnCode)
         end
 
         -- Server include
@@ -36,9 +37,9 @@ local function LoadModules()
                 if bShouldStop then return end
 
                 Console.Log("\tLoading SV file: " .. sServerFile)
-                returnCode = Package.Require(sPackageName .. "/Server/modules/" .. tConfig.pathName .. "/" .. sServerFile)
+                iReturnCode = Package.Require("/modules/" .. tConfig.pathName .. "/" .. sServerFile)
 
-                CheckStopCode(returnCode)
+                CheckStopCode(iReturnCode)
             end
         end
 
@@ -48,9 +49,9 @@ local function LoadModules()
                 if bShouldStop then return end
 
                 Console.Log("\tLoading CL file: " .. clientFile)
-                returnCode = Package.Require(sPackageName .. "/Client/modules/" .. tConfig.pathName .. "/" .. clientFile)
+                iReturnCode = Package.Require("/modules/" .. tConfig.pathName .. "/" .. clientFile)
 
-                CheckStopCode(returnCode)
+                CheckStopCode(iReturnCode)
             end
         end
     end
