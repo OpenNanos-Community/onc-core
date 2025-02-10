@@ -1,7 +1,8 @@
 local tSql = {}
 
 -- Activate or deactivate the SQL registration (true/false)
--- Information: The SQL registration is the best way to store data, it is fully recommended to use it. (increase the performance of your server)
+-- If is desactivated, the data will be stored in the file of the server
+-- -----> Information: The SQL registration is the best way to store data, it is fully recommended to use it. (increase the performance of your server) <-----
 tSql.Activate = false 
 
 tSql.Credentials = {
