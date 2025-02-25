@@ -7057,55 +7057,73 @@ function requireClient() {
 }
 var clientExports = requireClient();
 const heartbeat = "data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20width='45px'%20height='45px'%20viewBox='0%200%2024%2024'%3e%3cpath%20fill='none'%20stroke='%23931F1D'%20stroke-linecap='round'%20stroke-linejoin='round'%20stroke-width='2'%20d='M3%2012h4.5L9%206l4%2012l2-9l1.5%203H21'/%3e%3c/svg%3e";
+const Health = () => {
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col justify-evenly w-full md:w-60 shrink-0", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "icon", children: /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: heartbeat, alt: "Health", className: "w-6 h-6" }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-xl ml-auto self-end", children: "50%" })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-full bg-app-bg rounded-full h-2.5", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "bg-app-health h-2.5 rounded-full", style: { width: "50%" } }) })
+  ] });
+};
 const armor = "data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20width='35px'%20height='40px'%20viewBox='0%200%2024%2024'%3e%3cpath%20fill='%231B629D'%20d='M11.884%202.007L11.998%202l.118.007l.059.008l.061.013l.111.034a1%201%200%200%201%20.217.112l.104.082l.255.218a11%2011%200%200%200%207.189%202.537l.342-.01a1%201%200%200%201%201.005.717a13%2013%200%200%201-9.208%2016.25a1%201%200%200%201-.502%200A13%2013%200%200%201%202.54%205.718a1%201%200%200%201%201.005-.717a11%2011%200%200%200%207.531-2.527l.263-.225l.096-.075a1%201%200%200%201%20.217-.112l.112-.034a1%201%200%200%201%20.119-.021z'/%3e%3c/svg%3e";
+const Armor = () => {
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col justify-evenly w-full md:w-60 shrink-0", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "icon", children: /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: armor, alt: "Armor", className: "w-6 h-6" }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-xl ml-auto self-end", children: "50%" })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-full bg-app-bg rounded-full h-2.5", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "bg-app-armor h-2.5 rounded-full", style: { width: "50%" } }) })
+  ] });
+};
+const money = "data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20width='20'%20height='20'%20viewBox='0%200%2024%2024'%3e%3cg%20fill='none'%20stroke='%23fff'%20stroke-linecap='round'%20stroke-linejoin='round'%20stroke-width='2'%3e%3cpath%20d='M17%208V5a1%201%200%200%200-1-1H6a2%202%200%200%200%200%204h12a1%201%200%200%201%201%201v3m0%204v3a1%201%200%200%201-1%201H6a2%202%200%200%201-2-2V6'/%3e%3cpath%20d='M20%2012v4h-4a2%202%200%200%201%200-4z'/%3e%3c/g%3e%3c/svg%3e";
+const Money = () => {
+  return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex flex-col justify-evenly w-full md:w-60 shrink-0", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center bg-app-bg p-1 rounded-full mb-2", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-xl ml-2 truncate w-screen tracking-wider", children: new Intl.NumberFormat("en-en", { style: "currency", currency: "USD", maximumFractionDigits: 0 }).format(18524700) }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "icon ml-auto mr-2 flex justify-end w-full", children: /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: money, alt: "Money", className: "w-6 h-6" }) })
+  ] }) });
+};
+const user = "data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20width='20px'%20height='20px'%20viewBox='0%200%2024%2024'%3e%3cpath%20fill='none'%20stroke='%23fff'%20stroke-linecap='round'%20stroke-linejoin='round'%20stroke-width='2'%20d='M10%209a2%202%200%201%200%204%200a2%202%200%200%200-4%200M4%208V6a2%202%200%200%201%202-2h2M4%2016v2a2%202%200%200%200%202%202h2m8-16h2a2%202%200%200%201%202%202v2m-4%2012h2a2%202%200%200%200%202-2v-2M8%2016a2%202%200%200%201%202-2h4a2%202%200%200%201%202%202'/%3e%3c/svg%3e";
+const Name = () => {
+  return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex flex-col justify-evenly w-full md:w-60 shrink-0", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center bg-app-bg p-1 rounded-full mb-2", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-xl ml-2 truncate w-screen", children: "John Doe" }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "icon ml-auto mr-2 flex justify-end w-full", children: /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: user, alt: "User", className: "w-6 h-6" }) })
+  ] }) });
+};
 const hunger = "data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20width='20px'%20height='20px'%20viewBox='0%200%2024%2024'%3e%3cpath%20fill='%23CA7D2B'%20d='M22%2013c0%201.11-.89%202-2%202H4a2%202%200%201%201%200-4h9l2.5%202l2.5-2h2a2%202%200%200%201%202%202M12%203C3%203%203%209%203%209h18s0-6-9-6M3%2018c0%201.66%201.34%203%203%203h12c1.66%200%203-1.34%203-3v-1H3z'/%3e%3c/svg%3e";
 const thirst = "data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20width='20px'%20height='20px'%20viewBox='0%200%2024%2024'%3e%3cpath%20fill='%233993DD'%20d='M13%201a2%202%200%200%201%201.995%201.85L15%203v.5c0%201.317.381%202.604%201.094%203.705l.17.25l.05.072a9.1%209.1%200%200%201%201.68%204.92l.006.354V19a3%203%200%200%201-2.824%202.995L15%2022H9a3%203%200%200%201-2.995-2.824L6%2019v-6.2a9.1%209.1%200%200%201%201.486-4.982l.2-.292l.05-.069A6.82%206.82%200%200%200%209%203.5V3a2%202%200%200%201%201.85-1.995L11%201zm.362%205h-2.724a8.8%208.8%200%200%201-1.08%202.334l-.194.284l-.05.069a7.1%207.1%200%200%200-1.307%203.798l-.003.125A3.33%203.33%200%200%201%209.979%2012a3.4%203.4%200%200%201%202.833%201.417c.27.375.706.593%201.209.583a1.4%201.4%200%200%200%201.166-.583a3.4%203.4%200%200%201%20.81-.8L16%2012.8c0-1.37-.396-2.707-1.137-3.852l-.228-.332A8.8%208.8%200%200%201%2013.362%206'/%3e%3c/svg%3e";
 const stamina = "data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20width='20px'%20height='20px'%20viewBox='0%200%2024%2024'%3e%3cg%20fill='none'%20stroke='%23D9D9D9'%20stroke-linecap='round'%20stroke-linejoin='round'%20stroke-width='2'%3e%3cpath%20d='M12%204a1%201%200%201%200%202%200a1%201%200%201%200-2%200M4%2017l5%201l.75-1.5M15%2021v-4l-4-3l1-6'/%3e%3cpath%20d='M7%2012V9l5-1l3%203l3%201'/%3e%3c/g%3e%3c/svg%3e";
-const money = "data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20width='20'%20height='20'%20viewBox='0%200%2024%2024'%3e%3cg%20fill='none'%20stroke='%23fff'%20stroke-linecap='round'%20stroke-linejoin='round'%20stroke-width='2'%3e%3cpath%20d='M17%208V5a1%201%200%200%200-1-1H6a2%202%200%200%200%200%204h12a1%201%200%200%201%201%201v3m0%204v3a1%201%200%200%201-1%201H6a2%202%200%200%201-2-2V6'/%3e%3cpath%20d='M20%2012v4h-4a2%202%200%200%201%200-4z'/%3e%3c/g%3e%3c/svg%3e";
-const user = "data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20width='20px'%20height='20px'%20viewBox='0%200%2024%2024'%3e%3cpath%20fill='none'%20stroke='%23fff'%20stroke-linecap='round'%20stroke-linejoin='round'%20stroke-width='2'%20d='M10%209a2%202%200%201%200%204%200a2%202%200%200%200-4%200M4%208V6a2%202%200%200%201%202-2h2M4%2016v2a2%202%200%200%200%202%202h2m8-16h2a2%202%200%200%201%202%202v2m-4%2012h2a2%202%200%200%200%202-2v-2M8%2016a2%202%200%200%201%202-2h4a2%202%200%200%201%202%202'/%3e%3c/svg%3e";
-function App() {
-  return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "hud-container", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex flex-col md:flex-row px-5 md:px-10 py-5 md:py-10 text-app-text font-inter font-bold", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col md:flex-row justify-between items-end md:gap-10", children: [
+const Bars = () => {
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col md:flex-row gap-3 md:gap-6 shrink-0", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "relative flex items-center w-3 h-20 bg-app-bg rounded-full shrink-0", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute bottom-0 bg-app-hunger w-3 rounded-full", style: { height: "80%" } }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex items-center justify-center h-20 ml-2", children: /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: hunger, alt: "Hunger", className: "w-6 h-6" }) })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "relative flex items-center w-3 h-20 bg-app-bg rounded-full shrink-0", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute bottom-0 bg-app-thirst w-3 rounded-full", style: { height: "60%" } }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex items-center justify-center h-20 ml-2", children: /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: thirst, alt: "Thirst", className: "w-6 h-6" }) })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "relative flex items-center w-3 h-20 bg-app-bg rounded-full shrink-0", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute bottom-0 bg-app-text w-3 rounded-full", style: { height: "40%" } }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex items-center justify-center h-20 ml-2", children: /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: stamina, alt: "Stamina", className: "w-6 h-6" }) })
+    ] })
+  ] });
+};
+const Base = () => {
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col md:flex-row justify-between items-end md:gap-10", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col-reverse", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col-reverse gap-2", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col justify-evenly w-full md:w-60 shrink-0", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "icon", children: /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: heartbeat, alt: "Health", className: "w-6 h-6" }) }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-xl ml-auto self-end", children: "50%" })
-          ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-full bg-app-bg rounded-full h-2.5", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "bg-app-health h-2.5 rounded-full", style: { width: "50%" } }) })
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col justify-evenly w-full md:w-60 shrink-0", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "icon", children: /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: armor, alt: "Armor", className: "w-6 h-6" }) }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-xl ml-auto self-end", children: "50%" })
-          ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-full bg-app-bg rounded-full h-2.5", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "bg-app-armor h-2.5 rounded-full", style: { width: "50%" } }) })
-        ] })
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Health, {}),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Armor, {})
       ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex flex-col justify-evenly w-full md:w-60 shrink-0", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center bg-app-bg p-1 rounded-full mb-2", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-xl ml-2 truncate w-screen tracking-wider", children: new Intl.NumberFormat("en-en", { style: "currency", currency: "USD", maximumFractionDigits: 0 }).format(18524700) }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "icon ml-auto mr-2 flex justify-end w-full", children: /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: money, alt: "Money", className: "w-6 h-6" }) })
-      ] }) }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex flex-col justify-evenly w-full md:w-60 shrink-0", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center bg-app-bg p-1 rounded-full mb-2", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-xl ml-2 truncate w-screen", children: "John Doe" }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "icon ml-auto mr-2 flex justify-end w-full", children: /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: user, alt: "Money", className: "w-6 h-6" }) })
-      ] }) })
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Money, {}),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Name, {})
     ] }),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col md:flex-row gap-3 md:gap-6 shrink-0", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "relative flex items-center w-3 h-20 bg-app-bg rounded-full shrink-0", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute bottom-0 bg-app-hunger w-3 rounded-full", style: { height: "80%" } }) }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex items-center justify-center h-20 ml-2", children: /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: hunger, alt: "Hunger", className: "w-6 h-6" }) })
-      ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "relative flex items-center w-3 h-20 bg-app-bg rounded-full shrink-0", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute bottom-0 bg-app-thirst w-3 rounded-full", style: { height: "60%" } }) }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex items-center justify-center h-20 ml-2", children: /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: thirst, alt: "Thirst", className: "w-6 h-6" }) })
-      ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "relative flex items-center w-3 h-20 bg-app-bg rounded-full shrink-0", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute bottom-0 bg-app-text w-3 rounded-full", style: { height: "40%" } }) }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex items-center justify-center h-20 ml-2", children: /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: stamina, alt: "Stamina", className: "w-6 h-6" }) })
-      ] })
-    ] })
-  ] }) }) });
+    /* @__PURE__ */ jsxRuntimeExports.jsx(Bars, {})
+  ] });
+};
+function App() {
+  return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "hud-container", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex flex-col md:flex-row px-5 md:px-10 py-5 md:py-10 text-app-text font-inter font-bold", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Base, {}) }) });
 }
 clientExports.createRoot(document.getElementById("root")).render(
   /* @__PURE__ */ jsxRuntimeExports.jsx(reactExports.StrictMode, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(App, {}) })
