@@ -16,15 +16,19 @@ end
 ---@param rRotation Rotator
 function Player:Spawn(vLocation, rRotation)
     local cNewChar = Character(vLocation or Vector(0, 0, 0), rRotation or Rotator(0, 0, 0), "nanos-world::SK_Male")
-    cNewChar:SetTeam(1)
+
+    if not tConfig.bPVPDamage then
+        cNewChar:SetTeam(1)
+    end
+
     self:Possess(cNewChar)
 
     cNewChar:PickUp(NanosWorldWeapons.AK47(Vector(6931.17, 11625.8, 198.14), Rotator()))
 
     cNewChar:Subscribe("Death", OnPlayerDeath)
 
-    cNewChar:Subscribe("UnPossess", function(self)
-        self:Unsubscribe("Death", OnPlayerDeath)
+    cNewChar:Subscribe("UnPossess", function(pPly, cChar)
+        cChar:Unsubscribe("Death", OnPlayerDeath)
     end)
 end
 

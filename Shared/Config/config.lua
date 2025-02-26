@@ -22,6 +22,9 @@ tConfig.bUseONCHud = true
 -- Save player's data on disconnect (health, armor, weapons, ammo, position, team, etc)
 tConfig.bDisconnectSaveData = true
 
+-- Enable or disable PVP Damage
+tConfig.bPVPDamage = true
+
 
 --[[
 Value settings
