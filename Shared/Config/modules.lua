@@ -21,7 +21,7 @@ local tModules = {
             shared = {
             },
             server = {
-                "sv_utils.lua"
+                "sv_sql.lua"
             },
             client = {
                 
