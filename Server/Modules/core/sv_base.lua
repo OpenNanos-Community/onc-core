@@ -1,7 +1,8 @@
 local tConfig = Package.Require("Config/config.lua")
+local tJobs = Package.Require("Config/jobs.lua")
 
 -- Internal function called when player dies
-local function OnPlayerDeath(cChar, iLastDamage, sLastBoneDamage, iDamageReason, vHitDirection, pInstigator)
+function OnPlayerDeath(cChar, iLastDamage, sLastBoneDamage, iDamageReason, vHitDirection, pInstigator)
     local pCharController = cChar:GetPlayer()
 
     if not pCharController then return end
@@ -42,7 +43,7 @@ end)
 
 Character.Subscribe("Respawn", function(cChar)
     if not tConfig.bRespawnSameTeam then
-        cChar:SetJob(1)
+        cChar:SetJob(tConfig.sBaseJob)
     end
 end)
 

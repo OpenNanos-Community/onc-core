@@ -3,9 +3,9 @@ local tConfig = {}
 --[[
 Create jobs.
 ]]
-tConfig.Jobs = {}
+tConfig.tJobs = {}
 
-tConfig.Jobs["citizen"] = {
+tConfig.tJobs["citizen"] = {
     ["sName"] = "Citizen",
     ["cColor"] = Color.FromRGBA(0, 122, 202, 255),
     ["tModels"] = {"nanos-world::SK_Male"},
@@ -24,14 +24,11 @@ tConfig.Jobs["citizen"] = {
 Toggle settings.
 Set some values.
 ]]
--- Set base salary for all jobs
-tConfig.iBaseSalary = 100
-
 -- Set base job
-tConfig.iBaseJob = 1
+tConfig.sBaseJob = "citizen"
 
 -- Set Base Job Weapon
-tConfig.tBaseJobWeapon = {
+tConfig.tBasePlayerWeapon = {
     "Crowbar"
 }
 
