@@ -19,7 +19,7 @@ local function LoadModules()
     local tModuleFiles = {}
 
     -- mName : module name && tConfig : module configuration(ex: files, displayName)
-    for k, tConfig in ipairs(tModules.Modules) do
+    for k, tConfig in ipairs(tModules) do
         Console.Log("[Loader] Loading module: " .. tConfig.pathName)
 
         tModuleFiles = tConfig.files
