@@ -2,6 +2,7 @@ local tConfig = Package.Require("Config/config.lua")
 local tJobs = Package.Require("Config/jobs.lua")
 
 -- Internal function called when player dies
+-- Cant be localized due to error when is used in UnPossess event
 function OnPlayerDeath(cChar, iLastDamage, sLastBoneDamage, iDamageReason, vHitDirection, pInstigator)
     local pCharController = cChar:GetPlayer()
 
@@ -40,7 +41,7 @@ Player.Subscribe("Spawn", function(pPly)
     Chat.BroadcastMessage(pPly:GetName().." has joined the server")
 end)
 
-
+-- Event called when a player respawns
 Character.Subscribe("Respawn", function(cChar)
     if not tConfig.bRespawnSameTeam then
         cChar:SetJob(tConfig.sBaseJob)

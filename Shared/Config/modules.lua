@@ -27,7 +27,20 @@ local tModules = {
                 
             },
         }
-    }
+    },
+    [3] = {
+        displayName = "HUD";
+        pathName = "hud";
+        files = {
+            shared = {
+            },
+            server = {
+            },
+            client = {
+                "cl_ui.lua"
+            },
+        }
+    },
 }
 
 return tModules
