@@ -41,6 +41,19 @@ local tModules = {
             },
         }
     },
+    [4] = {
+        displayName = "Character Creator";
+        pathName = "character-creator";
+        files = {
+            shared = {
+            },
+            server = {
+            },
+            client = {
+                "cl_ui.lua"
+            },
+        }
+    },
 }
 
 return tModules
