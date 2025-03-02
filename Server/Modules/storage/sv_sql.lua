@@ -15,7 +15,7 @@ end
 ---@return string
 function ONC.SqlExecute(sSqlCode, ...)
     -- Set the data of the player in the database
-    return xDatabase:Execute(sSqlCode)
+    return xDatabase:Execute(sSqlCode, ...)
 end
 
 ---`🔹 Server`<br>
@@ -27,7 +27,7 @@ end
 ---@return string
 function ONC.SqlExecuteAsync(sSqlCode, CallBack, ...)
     -- Get the data of the player in the database
-    return xDatabase:ExecuteAsync(sSqlCode)
+    return xDatabase:ExecuteAsync(sSqlCode, CallBack, ...)
 end
 
 ---`🔹 Server`<br>
@@ -38,7 +38,7 @@ end
 ---@return string
 function ONC.SqlSelect(sSqlCode, ...)
     -- Get the data of the player in the database
-    return xDatabase:Select(sSqlCode)
+    return xDatabase:Select(sSqlCode, ...)
 end
 
 ---`🔹 Server`<br>
@@ -50,7 +50,7 @@ end
 ---@return string
 function ONC.SqlSelectAsync(sSqlCode, CallBack, ...)
     -- Get the data of the player in the database
-    return xDatabase:SelectAsync(sSqlCode)
+    return xDatabase:SelectAsync(sSqlCode, CallBack, ...)
 end
 
 ---`🔹 Server`<br>
