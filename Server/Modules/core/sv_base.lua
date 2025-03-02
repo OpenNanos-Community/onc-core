@@ -38,6 +38,10 @@ end
 Player.Subscribe("Spawn", function(pPly)
     pPly:Spawn()
 
+    ONC.SqlExecute([[INSERT INTO onc_users (account_id, steamid, username, firstconnect, lastconnect, playtime)
+        VALUES (:0, :1, :2, DATETIME(:3), DATETIME(:3), 0) ON CONFLICT (account_id) DO UPDATE SET username = :2, lastconnect = DATETIME(:3);
+    ]], pPly:GetAccountID(), pPly:GetSteamID(), pPly:GetName(), os.date("%Y-%m-%d %H:%M:%S"))
+
     Chat.BroadcastMessage(pPly:GetName().." has joined the server")
 end)
 
@@ -59,30 +63,29 @@ Player.Subscribe("Destroy", function(pPly)
 end)
 
 Package.Subscribe("Load", function()
-	ONC.SqlExecute([[CREATE TABLE IF NOT EXISTS "onc_users" (
-	"id" INTEGER AUTO_INCREMENT NOT NULL,
-	"steamid" VARCHAR(100) NOT NULL,
-	"account_id" VARCHAR(100) NOT NULL,
-	"username" VARCHAR(100) NULL,
-	"firstconnect" DATETIME NULL,
-	"lastconnect" DATETIME NULL,
-	"playtime" INTEGER NULL,
-	PRIMARY KEY ("id")
+	ONC.SqlExecute([[CREATE TABLE IF NOT EXISTS onc_users (
+	account_id VARCHAR(255) NOT NULL,
+	steamid VARCHAR(100) NOT NULL,
+	username VARCHAR(100) NULL,
+	firstconnect DATETIME NULL,
+	lastconnect DATETIME NULL,
+	playtime INTEGER NULL,
+	PRIMARY KEY (account_id)
     );]])
 
-    ONC.SqlExecute([[CREATE TABLE IF NOT EXISTS "onc_characters" (
-	"id" INTEGER NOT NULL,
-	"account_id" VARCHAR(100) NOT NULL,
-	"firstname" VARCHAR(100) NULL,
-    "lastname" VARCHAR(100) NULL,
-    "job" VARCHAR(100) NULL,
-    "jobrank" VARCHAR(100) NULL,
-    "money" INTEGER NULL,
-    "blackmoney" INTEGER NULL,
-    "bank" INTEGER NULL,
-    "inventory" TEXT NULL,
-    "bankinventory" TEXT NULL,
-    "lastposition" TEXT NULL,
-	PRIMARY KEY ("id")
+    ONC.SqlExecute([[CREATE TABLE IF NOT EXISTS onc_characters (
+	id INTEGER NOT NULL,
+	account_id VARCHAR(100) NOT NULL,
+	firstname VARCHAR(100) NULL,
+    lastname VARCHAR(100) NULL,
+    job VARCHAR(100) NULL,
+    jobrank VARCHAR(100) NULL,
+    money INTEGER NULL,
+    blackmoney INTEGER NULL,
+    bank INTEGER NULL,
+    inventory TEXT NULL,
+    bankinventory TEXT NULL,
+    lastposition TEXT NULL,
+	PRIMARY KEY (id)
     );]])
 end)
