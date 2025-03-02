@@ -7,8 +7,8 @@ tSql.Activate = false
 
 tSql.Credentials = {
     databaseType = "SQLite", -- SQLite / MySQL / PostgreSQL (write the name of the database type you are using exacly as it is written here)
-    host = "",
-    user = "",
+    host = "127.0.0.1",
+    user = "root",
     password = "",
     database = "",
     port = 3306
