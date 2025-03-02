@@ -59,6 +59,9 @@ Player.Subscribe("Destroy", function(pPly)
         cChar:Destroy()
     end
 
+    ONC.SqlExecute([[UPDATE onc_users
+    SET playtime = playtime + (unixepoch(lastconnect) - unixepoch('now')) WHERE account_id = :0;]], pPly:GetAccountID())
+
     Chat.BroadcastMessage(pPly:GetName().." has left the server")
 end)
 
