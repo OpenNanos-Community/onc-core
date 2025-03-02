@@ -57,3 +57,32 @@ Player.Subscribe("Destroy", function(pPly)
 
     Chat.BroadcastMessage(pPly:GetName().." has left the server")
 end)
+
+Package.Subscribe("Load", function()
+	ONC.SqlExecute([[CREATE TABLE IF NOT EXISTS "onc_users" (
+	"id" INTEGER AUTO_INCREMENT NOT NULL,
+	"steamid" VARCHAR(100) NOT NULL,
+	"account_id" VARCHAR(100) NOT NULL,
+	"username" VARCHAR(100) NULL,
+	"firstconnect" DATETIME NULL,
+	"lastconnect" DATETIME NULL,
+	"playtime" INTEGER NULL,
+	PRIMARY KEY ("id")
+    );]])
+
+    ONC.SqlExecute([[CREATE TABLE IF NOT EXISTS "onc_characters" (
+	"id" INTEGER NOT NULL,
+	"account_id" VARCHAR(100) NOT NULL,
+	"firstname" VARCHAR(100) NULL,
+    "lastname" VARCHAR(100) NULL,
+    "job" VARCHAR(100) NULL,
+    "jobrank" VARCHAR(100) NULL,
+    "money" INTEGER NULL,
+    "blackmoney" INTEGER NULL,
+    "bank" INTEGER NULL,
+    "inventory" TEXT NULL,
+    "bankinventory" TEXT NULL,
+    "lastposition" TEXT NULL,
+	PRIMARY KEY ("id")
+    );]])
+end)
