@@ -65,6 +65,11 @@ Player.Subscribe("Destroy", function(pPly)
     Chat.BroadcastMessage(pPly:GetName().." has left the server")
 end)
 
+Events.SubscribeRemote("ONC::SendCharacterInformation", function(pPly, sFirstName, sLastName, sBirthDate)
+    ONC.SqlExecute([[INSERT INTO onc_characters (account_id, firstname, lastname
+        birth) VALUES (:0, :1, :2, :3);]], pPly:GetAccountID(), sFirstName, sLastName, sBirthDate)
+end)
+
 Package.Subscribe("Load", function()
 	ONC.SqlExecute([[CREATE TABLE IF NOT EXISTS onc_users (
 	account_id VARCHAR(255) NOT NULL,

@@ -5,8 +5,8 @@ Client.Subscribe("SpawnLocalPlayer", function(pLocal)
         Input.SetInputEnabled(false)
         ONC.BaseHUD:BringToFront()
 
-        ONC.BaseHUD:Subscribe("ONC::CreateCharacter", function(firstName, lastName, dob)
-            -- TODO: Add server event
+        ONC.BaseHUD:Subscribe("ONC::CreateCharacter", function(sFirstName, sLastName, sBirthDate)
+            Events.CallRemote("ONC::SendCharacterInformation", sFirstName, sLastName, sBirthDate)
             Input.SetMouseEnabled(false)
             Input.SetInputEnabled(true)
         end)
