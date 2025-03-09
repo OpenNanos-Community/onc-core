@@ -1,4 +1,9 @@
 local tSql = Package.Require("config/storage.lua")
+-- Micro Optimizations
+local tReturnFalse = {
+     [0] = true
+}
+
 local xDatabase
 
 if tSql.Activate then
@@ -11,8 +16,7 @@ end
 ---Execute a SQL code
 ---@param sSqlCode string
 ---@vararg any
----@return integer
----@return string
+---@return integer or string
 function ONC.SqlExecute(sSqlCode, ...)
     -- Set the data of the player in the database
     return xDatabase:Execute(sSqlCode, ...)
@@ -23,8 +27,7 @@ end
 ---@param sSqlCode string
 ---@param CallBack function
 ---@vararg any
----@return integer
----@return string
+---@return integer or string
 function ONC.SqlExecuteAsync(sSqlCode, CallBack, ...)
     -- Get the data of the player in the database
     return xDatabase:ExecuteAsync(sSqlCode, CallBack, ...)
@@ -34,11 +37,14 @@ end
 ---Select data from the database
 ---@param sSqlCode string
 ---@vararg any
----@return table
----@return string
+---@return table or string or boolean
 function ONC.SqlSelect(sSqlCode, ...)
     -- Get the data of the player in the database
-    return xDatabase:Select(sSqlCode, ...)
+    local tData = xDatabase:Select(sSqlCode, ...)
+    if tReturnFalse[#tData] then
+        return false
+    end
+    return tData
 end
 
 ---`🔹 Server`<br>
@@ -46,8 +52,7 @@ end
 ---@param sSqlCode string
 ---@param CallBack function
 ---@vararg any
----@return table
----@return string
+---@return table or string
 function ONC.SqlSelectAsync(sSqlCode, CallBack, ...)
     -- Get the data of the player in the database
     return xDatabase:SelectAsync(sSqlCode, CallBack, ...)
