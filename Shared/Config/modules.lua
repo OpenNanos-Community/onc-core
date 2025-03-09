@@ -7,10 +7,11 @@ local tModules = {
             },
             server = {
                 "sv_base.lua",
+                "sv_jobs.lua",
                 "sv_money.lua"
             },
             client = {
-                
+                "cl_base.lua"
             },
         }
     },

@@ -42,6 +42,20 @@ Player.Subscribe("Spawn", function(pPly)
         VALUES (:0, :1, :2, DATETIME(:3), DATETIME(:3), 0) ON CONFLICT (account_id) DO UPDATE SET username = :2, lastconnect = DATETIME(:3);
     ]], pPly:GetAccountID(), pPly:GetSteamID(), pPly:GetName(), os.date("%Y-%m-%d %H:%M:%S"))
 
+    local tData = ONC.SqlSelect([[SELECT * FROM onc_characters WHERE account_id = :0;]], pPly:GetAccountID())
+
+    if tData then
+        if tData[1] then
+            pPly:SetName(tData[1]["firstname"].." "..tData[1]["lastname"])
+            Events.CallRemote("ONC::CharacterInformationUpdate", pPly, tData[1])
+        else
+            pPly:SetName(tData["firstname"].." "..tData["lastname"])
+            Events.CallRemote("ONC::CharacterInformationUpdate", pPly, tData)
+        end
+    else
+        Events.CallRemote("ONC::StartCreateCharacter", pPly)
+    end
+
     Chat.BroadcastMessage(pPly:GetName().." has joined the server")
 end)
 
@@ -66,8 +80,9 @@ Player.Subscribe("Destroy", function(pPly)
 end)
 
 Events.SubscribeRemote("ONC::SendCharacterInformation", function(pPly, sFirstName, sLastName, sBirthDate)
-    ONC.SqlExecute([[INSERT INTO onc_characters (account_id, firstname, lastname
-        birth) VALUES (:0, :1, :2, :3);]], pPly:GetAccountID(), sFirstName, sLastName, sBirthDate)
+    ONC.SqlExecute([[INSERT INTO onc_characters (account_id, firstname, lastname, birthdate)
+    VALUES (:0, :1, :2, DATE(:3));]], pPly:GetAccountID(), sFirstName, sLastName, sBirthDate)
+    pPly:SetName(sFirstName.." "..sLastName)
 end)
 
 Package.Subscribe("Load", function()
@@ -82,11 +97,11 @@ Package.Subscribe("Load", function()
     );]])
 
     ONC.SqlExecute([[CREATE TABLE IF NOT EXISTS onc_characters (
-	id INTEGER AUTO_INCREMENT NOT NULL,
+	rowid INTEGER,
 	account_id VARCHAR(100) NOT NULL,
 	firstname VARCHAR(100) NULL,
     lastname VARCHAR(100) NULL,
-    birthdate DATETIME NULL,
+    birthdate DATE NULL,
     gender TINYINT(1) NULL,
     isdead TINYINT(1) NULL,
     health INTEGER NULL,
@@ -100,6 +115,6 @@ Package.Subscribe("Load", function()
     bankinventory TEXT NULL,
     lastposition TEXT NULL,
     licenses TEXT NULL,
-	PRIMARY KEY (id)
+	PRIMARY KEY (rowid)
     );]])
 end)
