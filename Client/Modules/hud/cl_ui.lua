@@ -1,6 +1,11 @@
 Client.Subscribe("SpawnLocalPlayer", function(pLocal)
 	pLocal:Subscribe("Possess", function(pPly, cChar)
+        ONC.BaseHUD:CallEvent("ONC::UpdateName", pLocal:GetName())
         ONC.BaseHUD:CallEvent("ONC::UpdateHealth", cChar:GetHealth())
+        --ONC.BaseHUD:CallEvent("ONC::UpdateArmor", cChar:GetArmor())
+        --ONC.BaseHUD:CallEvent("ONC::UpdateStamina", cChar:GetStamina())
+        --ONC.BaseHUD:CallEvent("ONC::UpdateHunger", cChar:GetHunger())
+        --ONC.BaseHUD:CallEvent("ONC::UpdateThirst", cChar:GetThirst())
         
         cChar:Subscribe("HealthChange", function(cCharacter, iOldHealth, iNewHealth)
             -- Immediatelly Updates the Health UI
