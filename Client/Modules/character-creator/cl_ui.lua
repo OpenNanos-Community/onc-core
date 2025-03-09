@@ -1,5 +1,6 @@
 Client.Subscribe("SpawnLocalPlayer", function(pLocal)
 	pLocal:Subscribe("Possess", function(pPly, cChar)
+        ONC.BaseHUD:CallEvent("ONC::ToggleCharacterCreator")
         Input.SetMouseEnabled(true)
         Input.SetInputEnabled(false)
         ONC.BaseHUD:BringToFront()
