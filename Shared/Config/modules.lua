@@ -54,6 +54,19 @@ local tModules = {
             },
         }
     },
+    [5] = {
+        displayName = "Scoreboard";
+        pathName = "scoreboard";
+        files = {
+            shared = {
+            },
+            server = {
+            },
+            client = {
+                "cl_ui.lua"
+            },
+        }
+    }
 }
 
 return tModules
