@@ -94,6 +94,7 @@ Package.Subscribe("Load", function()
     inventory TEXT NULL,
     bankinventory TEXT NULL,
     lastposition TEXT NULL,
+    licenses TEXT NULL,
 	PRIMARY KEY (id)
     );]])
 end)
