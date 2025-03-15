@@ -1,5 +1,5 @@
 local bShouldStop = false
-local tModules = Package.Require("/Config/modules.lua")
+local tModules = Package.Require("Config/modules.lua")
 
 -- Function used internally
 -- Check if the return code is -1, if so, stop the package
@@ -29,7 +29,7 @@ local function LoadModules()
             if bShouldStop then return end
 
             Console.Log("\tLoading SH file: " .. sSharedFile)
-            iReturnCode = Package.Require("/modules/" .. tConfig.pathName .. "/" .. sSharedFile)
+            iReturnCode = Package.Require("/Modules/" .. tConfig.pathName .. "/" .. sSharedFile)
 
             CheckStopCode(iReturnCode)
         end
@@ -40,7 +40,7 @@ local function LoadModules()
                 if bShouldStop then return end
 
                 Console.Log("\tLoading SV file: " .. sServerFile)
-                iReturnCode = Package.Require("/modules/" .. tConfig.pathName .. "/" .. sServerFile)
+                iReturnCode = Package.Require("/Modules/" .. tConfig.pathName .. "/" .. sServerFile)
 
                 CheckStopCode(iReturnCode)
             end
