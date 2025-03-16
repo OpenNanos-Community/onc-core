@@ -67,7 +67,20 @@ local tModules = {
                 "cl_ui.lua"
             },
         }
-    }
+    },
+    [6] = {
+        displayName = "Ammo";
+        pathName = "ammo";
+        files = {
+            shared = {
+            },
+            server = {
+            },
+            client = {
+                "cl_ui.lua"
+            },
+        }
+    },
 }
 
 return tModules
