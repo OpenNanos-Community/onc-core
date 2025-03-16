@@ -96,10 +96,10 @@ Package.Subscribe("Load", function()
 	PRIMARY KEY (account_id)
     );]])
 
-    ONC.SqlExecute([[CREATE TABLE IF NOT EXISTS onc_characters (
-	rowid INTEGER,
-	account_id VARCHAR(100) NOT NULL,
-	firstname VARCHAR(100) NULL,
+    ONC.SqlExecute([[CREATE TABLE IF NOT EXISTS "onc_characters" (
+    id INTEGER NOT NULL,
+    account_id VARCHAR(100) NOT NULL,
+    firstname VARCHAR(100) NULL,
     lastname VARCHAR(100) NULL,
     birthdate DATE NULL,
     gender TINYINT(1) NULL,
@@ -115,6 +115,7 @@ Package.Subscribe("Load", function()
     bankinventory TEXT NULL,
     lastposition TEXT NULL,
     licenses TEXT NULL,
-	PRIMARY KEY (rowid)
-    );]])
+    PRIMARY KEY (id),
+    CONSTRAINT "characters_accountid" FOREIGN KEY (account_id) REFERENCES "onc_users" (account_id) ON UPDATE CASCADE ON DELETE CASCADE
+);]])
 end)
