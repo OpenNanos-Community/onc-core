@@ -1,5 +1,5 @@
 local bShouldStop = false
-local tModules = Package.Require("Config/modules.lua")
+local tModules = Package.Require("Config/Modules.lua")
 
 -- Function used internally
 -- Check if the return code is -1, if so, stop the package
@@ -52,7 +52,7 @@ local function LoadModules()
                 if bShouldStop then return end
 
                 Console.Log("\tLoading CL file: " .. clientFile)
-                iReturnCode = Package.Require("/modules/" .. tConfig.pathName .. "/" .. clientFile)
+                iReturnCode = Package.Require("/Modules/" .. tConfig.pathName .. "/" .. clientFile)
 
                 CheckStopCode(iReturnCode)
             end
