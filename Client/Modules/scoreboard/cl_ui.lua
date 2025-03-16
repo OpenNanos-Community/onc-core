@@ -1,4 +1,4 @@
-Input.Register("Scoreboard", "Tab")
+Input.Register("Scoreboard", "Tab", "Toggle Scoreboard")
 
 Input.Bind("Scoreboard", InputEvent.Pressed, function()
     if (not ONC.BaseHUD or not ONC.BaseHUD:IsValid()) then return end
