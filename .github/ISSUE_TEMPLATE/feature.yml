@@ -4,7 +4,7 @@ title: "💡 [REQUEST] - <title>"
 labels: 
   - "question"
 body:
-  - type: texrarea
+  - type: textarea
     id: description
     attributes:
       label: "Description"
