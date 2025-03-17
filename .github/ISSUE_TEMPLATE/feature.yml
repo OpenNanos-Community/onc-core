@@ -1,0 +1,30 @@
+name: "💡 Feature Request"
+description: Create a new ticket for a new feature request
+title: "💡 [REQUEST] - <title>"
+labels: 
+  - "question"
+body:
+  - type: texrarea
+    id: description
+    attributes:
+      label: "Description"
+      description: A clear and concise description of the feature you are requesting.
+      placeholder: ""
+    validations:
+      required: true
+  - type: textarea
+    id: tasks
+    attributes:
+      label: "Tasks"
+      description: List of tasks to be done
+      placeholder: "- [ ] Task 1\n- [ ] Task 2\n- [ ] Task 3\n..."
+    validations:
+      required: true
+  - type: textarea
+    id: specifications
+    attributes:
+      label: "Specifications"
+      description: Add any specifications you think are necessary for the feature to be implemented. 
+      placeholder: "Data returned, API calls, restrictions, naming conventions etc."
+    validations:
+      required: true
