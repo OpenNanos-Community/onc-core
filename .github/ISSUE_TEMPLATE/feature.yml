@@ -9,7 +9,7 @@ body:
     attributes:
       label: "Description"
       description: A clear and concise description of the feature you are requesting.
-      placeholder: ""
+      placeholder: "user story, use case, etc."
     validations:
       required: true
   - type: textarea
