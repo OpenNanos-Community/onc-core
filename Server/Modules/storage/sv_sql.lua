@@ -1,11 +1,6 @@
 local tSql = Package.Require("Config/storage.lua")
--- Micro Optimizations
-local tReturnFalse = {
-     [0] = true
-}
 
 local xDatabase
-
 if tSql.Activate then
     xDatabase = Database(DatabaseEngine[tSql.Credentials.databaseType], "host="..tSql.Credentials.host.." user="..tSql.Credentials.user.." password="..tSql.Credentials.password.." dbname="..tSql.Credentials.database.." port="..tSql.Credentials.port.." timeout=2")
 else
@@ -41,7 +36,7 @@ end
 function ONC.SqlSelect(sSqlCode, ...)
     -- Get the data of the player in the database
     local tData = xDatabase:Select(sSqlCode, ...)
-    if tReturnFalse[#tData] then
+    if #tData == 0 then
         return false
     end
     return tData
