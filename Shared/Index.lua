@@ -1,6 +1,6 @@
 ONC = ONC or {}
 
-Package.Require("Config/modules.lua")
+Package.Require("Config/Modules.lua")
 Package.Require("module_loader.lua")
 
 Package.Subscribe("Load", function()
