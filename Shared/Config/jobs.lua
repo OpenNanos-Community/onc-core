@@ -5,17 +5,19 @@ Create jobs.
 ]]
 tConfig.tJobs = {}
 
-tConfig.tJobs["citizen"] = {
-    ["sName"] = "Citizen",
-    ["cColor"] = Color.FromRGBA(0, 122, 202, 255),
+tConfig.iBaseSalary = 100
+
+tConfig.tJobs["unemployed"] = {
+    ["sName"] = "Unemployed",
+    ["cColor"] = Color.FromRGBA(120, 120, 120, 255),
     ["tModels"] = {"nanos-world::SK_Male"},
     ["tWeapons"] = {},
     ["tAmmo"] = {},
-    ["iSalary"] = 100,
-    ["iMax"] = 100,
+    ["iSalary"] = 75,
+    ["iMax"] = 0,
     ["iHealth"] = 100,
     ["iArmor"] = 0,
-    ["sCategory"] = "Citizen"
+    ["sCategory"] = "Civil"
 }
 
 
