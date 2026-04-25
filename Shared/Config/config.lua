@@ -32,4 +32,9 @@ tConfig.iRunSpeed = 400
 -- Jump power
 tConfig.iJumpPower = 200
 
+-- Economy defaults for a new character
+tConfig.iStartCash = 500
+tConfig.iStartBank = 2500
+tConfig.iStartBlackMoney = 0
+
 return tConfig
