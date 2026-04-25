@@ -29,58 +29,6 @@ local tModules = {
             },
         }
     },
-    [3] = {
-        displayName = "HUD";
-        pathName = "hud";
-        files = {
-            shared = {
-            },
-            server = {
-            },
-            client = {
-                "cl_ui.lua"
-            },
-        }
-    },
-    [4] = {
-        displayName = "Character Creator";
-        pathName = "character-creator";
-        files = {
-            shared = {
-            },
-            server = {
-            },
-            client = {
-                "cl_ui.lua"
-            },
-        }
-    },
-    [5] = {
-        displayName = "Scoreboard";
-        pathName = "scoreboard";
-        files = {
-            shared = {
-            },
-            server = {
-            },
-            client = {
-                "cl_ui.lua"
-            },
-        }
-    },
-    [6] = {
-        displayName = "Ammo";
-        pathName = "ammo";
-        files = {
-            shared = {
-            },
-            server = {
-            },
-            client = {
-                "cl_ui.lua"
-            },
-        }
-    },
 }
 
 return tModules
